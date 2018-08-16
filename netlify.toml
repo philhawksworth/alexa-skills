@@ -1,4 +1,4 @@
 [build]
-  command = "cp src/* dist"
+  command = "yarn run build"
   publish = "dist"
   functions = "functions"
