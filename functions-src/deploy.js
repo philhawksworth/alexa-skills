@@ -1,3 +1,5 @@
+var request = require('request');
+
 
 function buildResponse(request){
 
@@ -5,6 +7,10 @@ function buildResponse(request){
   var respondWith = "Ummm. I'm sorry, I don't quite understand."
 
   if(intentName == "deploy") {
+    request({
+      method: 'POST',
+      url: 'https://api.netlify.com/build_hooks/5b75f84e82d3f10467d27f41'
+    });
     respondWith = "Ok, deploying hawks worx dot com, on Netlify";
   }
 
