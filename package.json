@@ -8,6 +8,7 @@
     "build": "mkdir dist && cp src/* dist/ && netlify-lambda build functions-src"
   },
   "dependencies": {
-    "netlify-lambda": "^0.4.0"
+    "netlify-lambda": "^0.4.0",
+    "request": "^2.88.0"
   }
 }
