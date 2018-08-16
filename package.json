@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "cp src/* dist && netlify-lambda serve functions-src",
-    "build": "cp src/* dist && netlify-lambda build functions-src"
+    "start": "cp src/* dist/ & netlify-lambda serve functions-src",
+    "build": "cp src/* dist/ & netlify-lambda build functions-src"
   },
   "dependencies": {
     "netlify-lambda": "^0.4.0"
