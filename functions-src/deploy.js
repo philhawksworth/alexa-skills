@@ -29,21 +29,51 @@ function buildResponse(request){
 }
 
 
-export function handler(event, context, callback) {
+
+// --------------- Main handler -----------------------
+
+// Route the incoming request based on type (LaunchRequest, IntentRequest,
+// etc.) The JSON body of the request is provided in the event parameter.
+exports.handler = (event, context, callback) => {
+
 
   console.log('event :', event);
 
-  callback(null, buildResponse(event.request));
 
-  // if (event.request.type === 'LaunchRequest') {
-  //   console.log(event.request.type);
-  //   callback(null, buildResponse(event.request));
-  // } else if (event.request.type === 'IntentRequest') {
-  //     console.log(event.request.type);
-  //     callback(null, buildResponse(event.request));
-  // } else if (event.request.type === 'SessionEndedRequest') {
-  //     console.log(event.request.type);
-  //     onSessionEnded(event.request, event.session);
-  //     callback();
-  // }
-}
+
+  try {
+      // console.log(`event.session.application.applicationId=${event.session.application.applicationId}`);
+
+      // /**
+      //  * Uncomment this if statement and populate with your skill's application ID to
+      //  * prevent someone else from configuring a skill that sends requests to this function.
+      //  */
+
+      // if (event.session.application.applicationId !== 'amzn1.ask.skill.855cedcf-b7ed-47ce-8d09-1aec83572449') {
+      //      callback('Invalid Application ID');
+      // }
+
+
+      // if (event.request.type === 'LaunchRequest') {
+      //     console.log(event.request.type);
+      //     callback(null, buildResponse(event.request));
+
+      // } else if (event.request.type === 'IntentRequest') {
+      //     console.log(event.request.type);
+      //     callback(null, buildResponse(event.request));
+
+      // } else if (event.request.type === 'SessionEndedRequest') {
+      //     console.log(event.request.type);
+      //     onSessionEnded(event.request, event.session);
+      //     callback();
+
+      // }
+
+      callback(null, buildResponse(event.request));
+
+
+  } catch (err) {
+      callback(err);
+  }
+};
+
